@@ -7,3 +7,5 @@ ruff
 black
 pre-commit
 alembic
+pytest
+httpx
