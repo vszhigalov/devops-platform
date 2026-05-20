@@ -6,3 +6,4 @@ sqlalchemy
 ruff
 black
 pre-commit
+alembic

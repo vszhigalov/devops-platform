@@ -1,27 +1,46 @@
 # Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*.so
+.Python
 .venv/
+venv/
 
-# Env
+# Environment variables
 .env
-
-# MacOS
-.DS_Store
 
 # IDE
 .vscode/
 .idea/
 
-# Docker
+# macOS
+.DS_Store
+
+# Logs
 *.log
 
+# Pytest
+.pytest_cache/
+
+# Ruff / Black / mypy
+.ruff_cache/
+.mypy_cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Alembic
+alembic/versions/__pycache__/
+
+# Docker
+docker-data/
+
 # Terraform
+.terraform/
 *.tfstate
 *.tfstate.*
-.terraform/
+terraform.tfvars
 
 # Kubernetes
 kubeconfig
