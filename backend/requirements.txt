@@ -3,3 +3,6 @@ uvicorn[standard]
 redis
 psycopg2-binary
 sqlalchemy
+ruff
+black
+pre-commit
