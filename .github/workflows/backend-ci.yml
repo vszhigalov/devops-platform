@@ -30,7 +30,7 @@ jobs:
             - name: Run syntax check
               working-directory: ./backend
               run: |
-                  python -m py_compile app/main.py
+                  python -m compileall app
 
             - name: Build Docker image
               run: |
