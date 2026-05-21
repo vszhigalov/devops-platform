@@ -1,3 +1,4 @@
+import random
 import time
 
 from fastapi import APIRouter
@@ -18,6 +19,6 @@ def health():
 
 @router.get("/slow")
 def slow():
-    time.sleep(1)
+    time.sleep(random.uniform(0.1, 3))
 
     return {"status": "slow endpoint"}
