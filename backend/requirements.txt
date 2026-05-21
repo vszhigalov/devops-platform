@@ -9,3 +9,4 @@ pre-commit
 alembic
 pytest
 httpx
+prometheus-fastapi-instrumentator
