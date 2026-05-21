@@ -10,3 +10,4 @@ alembic
 pytest
 httpx
 prometheus-fastapi-instrumentator
+jinja2
