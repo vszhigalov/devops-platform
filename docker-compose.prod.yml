@@ -13,7 +13,7 @@ services:
 
       - --certificatesresolvers.letsencrypt.acme.httpchallenge=true
       - --certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web
-      - --certificatesresolvers.letsencrypt.acme.email=your-email@example.com
+      - --certificatesresolvers.letsencrypt.acme.email=vasili.zhyhalau@gmail.com
       - --certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json
 
     ports:
@@ -27,7 +27,7 @@ services:
     restart: unless-stopped
 
   backend:
-    image: ghcr.io/vszhyhalau/devops-platform-backend:latest
+    image: ghcr.io/vszhigalov/devops-platform-backend:latest
 
     env_file:
       - .env
@@ -35,7 +35,7 @@ services:
     labels:
       - traefik.enable=true
 
-      - traefik.http.routers.backend.rule=Host(`api.devops-platform.com`)
+      - traefik.http.routers.backend.rule=Host(`api.vzhyhalau-devops.uk`)
       - traefik.http.routers.backend.entrypoints=websecure
       - traefik.http.routers.backend.tls.certresolver=letsencrypt
 
