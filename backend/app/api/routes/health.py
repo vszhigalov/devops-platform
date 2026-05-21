@@ -1,3 +1,5 @@
+import time
+
 from fastapi import APIRouter
 
 from app.db.connections import check_postgres, check_redis
@@ -12,3 +14,10 @@ def health():
         "postgres": check_postgres(),
         "redis": check_redis(),
     }
+
+
+@router.get("/slow")
+def slow():
+    time.sleep(1)
+
+    return {"status": "slow endpoint"}
