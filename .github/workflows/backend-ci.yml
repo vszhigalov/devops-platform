@@ -4,6 +4,7 @@ on:
     push:
         branches:
             - main
+
     pull_request:
 
 permissions:
@@ -16,8 +17,6 @@ jobs:
 
         env:
             FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
-        if: github.ref == 'refs/heads/main'
 
         steps:
             - name: Checkout repository
@@ -44,12 +43,17 @@ jobs:
             - name: Run Ruff
               working-directory: ./backend
               run: |
-                  ruff check app
+                  ruff check .
 
             - name: Run Black
               working-directory: ./backend
               run: |
-                  black --check app
+                  black --check .
+
+            - name: Run tests
+              working-directory: ./backend
+              run: |
+                  pytest
 
             - name: Run syntax check
               working-directory: ./backend
@@ -67,6 +71,16 @@ jobs:
                   docker push \
                     ghcr.io/${{ github.repository_owner }}/devops-platform-backend:latest
 
+    deploy:
+        needs: backend-ci
+
+        runs-on: ubuntu-latest
+
+        environment: prod
+
+        if: github.ref == 'refs/heads/main'
+
+        steps:
             - name: Deploy to VPS
               uses: appleboy/ssh-action@v1.2.0
 
