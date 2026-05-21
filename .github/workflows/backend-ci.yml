@@ -54,6 +54,8 @@ jobs:
               working-directory: ./backend
               env:
                   PYTHONPATH: .
+                  DATABASE_URL: sqlite:///./test.db
+                  REDIS_URL: redis://localhost:6379
               run: |
                   pytest
 
