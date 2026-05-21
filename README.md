@@ -30,6 +30,16 @@ Production-like backend platform built for learning DevOps, backend engineering,
 
 ---
 
+# Live Demo
+
+API Documentation:
+
+```text
+https://api.vzhyhalau-devops.uk/docs
+```
+
+---
+
 # Features
 
 * Containerized FastAPI application
@@ -256,6 +266,37 @@ pre-commit run --all-files
 
 ---
 
+# CI/CD Pipeline
+
+Current deployment flow:
+
+```text
+git push
+→ GitHub Actions
+→ Ruff / Black checks
+→ Docker image build
+→ Push image to GHCR
+→ SSH deploy to VPS
+→ Pull latest image
+→ Restart containers
+→ Run Alembic migrations
+```
+
+---
+
+# Infrastructure
+
+Production infrastructure:
+
+* Ubuntu 24.04 VPS
+* Traefik reverse proxy
+* Automatic HTTPS via Let's Encrypt
+* GitHub Container Registry
+* Docker Compose production stack
+* Automated deployments via GitHub Actions
+
+---
+
 # CI Pipeline
 
 GitHub Actions pipeline includes:
@@ -280,6 +321,22 @@ This project is focused on learning:
 * Infrastructure orchestration
 * Testing workflows
 * Production-like architecture
+
+---
+
+# Current Production Stack
+
+```text
+Internet
+    ↓
+Cloudflare DNS
+    ↓
+Traefik
+    ↓
+FastAPI Backend
+    ↓
+PostgreSQL / Redis
+```
 
 ---
 
